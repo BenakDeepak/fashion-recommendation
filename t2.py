@@ -6,10 +6,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 from PIL import Image
 import requests
 from io import BytesIO
-from tensorflow.keras.applications import ResNet50
-from tensorflow.keras.applications.resnet50 import preprocess_input
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.models import Model
+from tensorflow.keras.applications import ResNet50 # type: ignore
+from tensorflow.keras.applications.resnet50 import preprocess_input # type: ignore
+from tensorflow.keras.preprocessing import image # type: ignore
+from tensorflow.keras.models import Model # type: ignore
 import pandas as pd
 
 # Load embeddings and filenames
@@ -19,7 +19,7 @@ with open('filenames.pkl', 'rb') as f:
     filenames = pickle.load(f)
 
 # Load dataset with URLs and Dress Types
-EXCEL_FILE = 'C:/Users/Deepak/Desktop/projects/fashion-recommendation/DATASET.xlsx'  # Update with the correct path
+EXCEL_FILE = './DATASET.xlsx'  # Update with the correct path
 df = pd.read_excel(EXCEL_FILE)
 df.rename(columns={"URL'S": 'URL', 'TYPE': 'Dress Type'}, inplace=True)
 
@@ -105,7 +105,7 @@ if image_url:
                 
                 # Display URLs of the similar images from the dataset
                 st.write('### Similar Image URLs:')
-                for img_file in filtered_similar_images[:3]:
+                for img_file in filtered_similar_images[1:5]:
                     # Find the matching URL from the dataset
                     matching_url = df[df['Dress Type'] == selected_clothing_type]['URL'].iloc[filenames.index(img_file)]
                     st.write(matching_url)

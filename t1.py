@@ -5,14 +5,14 @@ import pickle
 import requests
 from PIL import Image
 from io import BytesIO
-from tensorflow.keras.applications import ResNet50
-from tensorflow.keras.applications.resnet50 import preprocess_input
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.models import Model
+from tensorflow.keras.applications import ResNet50 # type: ignore
+from tensorflow.keras.applications.resnet50 import preprocess_input # type: ignore
+from tensorflow.keras.preprocessing import image # type: ignore
+from tensorflow.keras.models import Model # type: ignore
 from sklearn.preprocessing import normalize
 
 # File paths
-EXCEL_FILE = r'C:\Users\Deepak\Desktop\projects\fashion-recommendation\DATASET.xlsx'
+EXCEL_FILE = './DATASET.xlsx'
 EMBEDDINGS_FILE = 'embeddings.pkl'
 FILENAMES_FILE = 'filenames.pkl'
 PROCESSED_IMAGES_FILE = 'processed_images.pkl'
