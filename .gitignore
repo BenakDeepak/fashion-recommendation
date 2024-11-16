@@ -1,0 +1,4 @@
+myenv
+.vscode
+uploads
+*.pkl
